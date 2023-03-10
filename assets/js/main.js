@@ -32,41 +32,47 @@ Se sei a corto di idee per lo stile, potresti prendere spunto dallo screenshot f
 
 const containerElement = document.createElement('div');
 const rowElement = document.createElement('div');
-const colElement = document.createElement('div');
+
 
 containerElement.classList.add('container');
 rowElement.classList.add('row');
-colElement.classList.add('col');
+
 
 document.body.prepend(containerElement);
 containerElement.append(rowElement)
-rowElement.append(colElement)
 
+colElementinnerText = 'FizzBuzz DOM'
 
 
 
 // programma num 1/100 --> multipli di 3 stampa FIZZ --> multipli di 5 BUZZ --> per i numeri che sono sia multipli di 3 che di 5 stampi FizzBuzz
 for(let i = 1; i <= 100; i++ ){
 
-  const divElement = document.createElement('div')
-  divElement.classList.add('d-flex', 'justify-content-center')
+  const colElement = document.createElement('div')
+  colElement.classList.add('d-flex', 'justify-content-center', 'align-items-center', 'col-3', 'col-md-2', 'col_lg_1', 'fs-1', 'square')
   if(i % 3 == 0 && i % 5 == 0 ){
     console.log('FizzBuzz')
-    divElement.innerText = 'FizzBuzz'
-
+    colElement.innerText = 'FizzBuzz'
+    colElement.style.color = "white"
+    colElement.classList.add("fizzbuzz")
   } else if (i % 3 == 0){
     console.log('Fizz')
-    divElement.innerText = 'Fizz'
+    colElement.innerText = 'Fizz'
+    colElement.style.color = "red"
+    colElement.classList.add("fizz")
+
 
   } else if (i % 5 == 0){
     console.log('Buzz')
-    divElement.innerText = 'Buzz'
+    colElement.innerText = 'Buzz'
+    colElement.style.color = "blue"
+    colElement.classList.add("buzz")
 
   } else{
-    divElement.innerText = i
+    colElement.innerText = i
     console.log(i)
   }
 
-  colElement.append(divElement)
+  rowElement.append(colElement)
 
 }
