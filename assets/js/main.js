@@ -30,18 +30,43 @@ Se sei a corto di idee per lo stile, potresti prendere spunto dallo screenshot f
 - console.log
 */
 
+const containerElement = document.createElement('div');
+const rowElement = document.createElement('div');
+const colElement = document.createElement('div');
+
+containerElement.classList.add('container');
+rowElement.classList.add('row');
+colElement.classList.add('col');
+
+document.body.prepend(containerElement);
+containerElement.append(rowElement)
+rowElement.append(colElement)
+
+
+
+
+// programma num 1/100 --> multipli di 3 stampa FIZZ --> multipli di 5 BUZZ --> per i numeri che sono sia multipli di 3 che di 5 stampi FizzBuzz
 for(let i = 1; i <= 100; i++ ){
 
+  const divElement = document.createElement('div')
+  divElement.classList.add('d-flex', 'justify-content-center')
   if(i % 3 == 0 && i % 5 == 0 ){
     console.log('FizzBuzz')
+    divElement.innerText = 'FizzBuzz'
 
   } else if (i % 3 == 0){
     console.log('Fizz')
+    divElement.innerText = 'Fizz'
 
   } else if (i % 5 == 0){
     console.log('Buzz')
+    divElement.innerText = 'Buzz'
 
   } else{
+    divElement.innerText = i
     console.log(i)
   }
+
+  colElement.append(divElement)
+
 }
